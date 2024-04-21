@@ -14,7 +14,7 @@ env:
 jobs:
   build-and-deploy:
     runs-on: windows-latest
-    environment: dev
+
     steps:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@
@@ -37,10 +37,10 @@ jobs:
         popd
     
     - name: 'Run Unit Tests'
-        shell: pwsh
-        run: |
-            pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/tests'
-            dotnet test 
+      shell: pwsh
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/tests'
+        dotnet test 
             
 
     - name: 'Run Azure Functions Action'
